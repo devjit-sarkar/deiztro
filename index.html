@@ -1,19 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dragon's Lair</title>
-        <link rel="stylesheet" href="./styles.css">
-    </head>
-    <body>
-        <h3>Welcome to the</h3>
-        <h1>Dragon's Lair</h1>
-        <h2>Sections:</h2>
-        <ul>
-            <li>Archived Knowledge</li>
-            <li>Hymns Of Solace</li>
-        </ul>
-        <br>
-    </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            dragon: {
+              bg: '#FFF3E0',
+              text: '#5D4037',
+              accent: '#FF9800',
+              header: '#FFE0B2',
+              border: '#FFB74D'
+            }
+          }
+        }
+      },
+      plugins: [
+        function ({ addVariant }) {
+          addVariant('dragon', '&.dragon-mode');
+          addVariant('dragon-child', '.dragon-mode &');
+        }
+      ]
+    }
+  </script>
+</head>
+
+<body class="bg-gray-100 text-gray-800 font-sans transition-colors duration-500">
+  <!-- Header -->
+  <header class="bg-white dark:bg-gray-800 dragon-child:bg-dragon-header dragon-child:text-dragon-text shadow p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Your Name</h1>
+      <nav class="space-x-4">
+        <a href="#about" class="text-blue-600 dark:text-blue-400 dragon-child:text-dragon-accent hover:underline">About</a>
+        <a href="#projects" class="text-blue-600 dark:text-blue-400 dragon-child:text-dragon-accent hover:underline">Projects</a>
+        <a href="#contact" class="text-blue-600 dark:text-blue-400 dragon-child:text-dragon-accent hover:underline">Contact</a>
+        <button id="toggleDark" class="ml-4 px-2 py-1 border rounded">🌙</button>
+        <button id="toggleDragon" class="ml-2 px-2 py-1 border rounded">🐉</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-blue-100 dark:bg-blue-900 dragon-child:bg-dragon-bg py-20 text-center transition-colors duration-500">
+    <h2 class="text-4xl font-bold mb-4 dragon-child:text-dragon-text">Hi, I'm Your Name</h2>
+    <p class="text-lg dragon-child:text-dragon-text">A passionate developer building web and software solutions.</p>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 container mx-auto px-4">
+    <h2 class="text-3xl font-semibold mb-4 dragon-child:text-dragon-text">About Me</h2>
+    <p class="text-gray-700 dark:text-gray-300 dragon-child:text-dragon-text">Write a short introduction about yourself, your background, and what you love to build.</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="bg-gray-50 dark:bg-gray-900 dragon-child:bg-dragon-bg py-16 container mx-auto px-4 transition-colors duration-500">
+    <h2 class="text-3xl font-semibold mb-8 text-gray-800 dark:text-white dragon-child:text-dragon-text">Projects</h2>
+    <div id="projectGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 container mx-auto px-4">
+    <h2 class="text-3xl font-semibold mb-4 dragon-child:text-dragon-text">Contact</h2>
+    <form class="space-y-4 max-w-lg">
+      <input type="text" placeholder="Name" class="w-full p-2 border border-gray-300 dragon-child:border-dragon-border rounded">
+      <input type="email" placeholder="Email" class="w-full p-2 border border-gray-300 dragon-child:border-dragon-border rounded">
+      <textarea placeholder="Message" class="w-full p-2 border border-gray-300 dragon-child:border-dragon-border rounded"></textarea>
+      <button type="submit" class="bg-blue-600 dark:bg-blue-700 dragon-child:bg-dragon-accent text-white px-4 py-2 rounded hover:opacity-90">Send</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-gray-800 dragon-child:bg-dragon-header text-center p-4 shadow dark:text-white dragon-child:text-dragon-text">
+    <p>&copy; 2025 Your Name. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
